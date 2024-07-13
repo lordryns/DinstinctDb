@@ -34,10 +34,10 @@ https://distinctdb.onrender.com/
 - **Response**:
   ```json
   {
-    "item_id": "generated-item-id",
-    "name": "Item Name",
-    "description": "Item Description"
-  }
+        "message": "Response in text.",
+        "key": database-key, 
+        "success": Boolean
+    }
   ```
 
 ### Create item
