@@ -47,7 +47,7 @@ https://distinctdb.onrender.com/
 
 - **URL**: `/add_data/`
 - **Method**: `POST`
-- **Description**: Creates a new key / value item in the database.
+- **Description**: Creates a new (key / value) item in the database.
 - **Response**:
   ```json
   {
