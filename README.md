@@ -51,7 +51,7 @@ https://distinctdb.onrender.com/
 - **Request Body**:
   ```json
   {
-    "db_key": "your-db-key, 
+    "db_key": "your-db-key", 
     "title": "the key", 
     "value": "The value to assign",
     "data_type": "str | int | bool | float"
