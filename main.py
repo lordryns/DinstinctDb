@@ -1,38 +1,15 @@
-from fastapi import FastAPI
+from fastapi import FastAPI 
 from pydantic import BaseModel
+import json, uuid
 from typing import Union
-import uuid
-from databases import Database
-import sqlalchemy
-
-DATABASE_URL = "sqlite:///./distinct.db"
-database = Database(DATABASE_URL)
-metadata = sqlalchemy.MetaData()
-
-db_table = sqlalchemy.Table(
-    "databases",
-    metadata,
-    sqlalchemy.Column("key", sqlalchemy.String, primary_key=True),
-    sqlalchemy.Column("data", sqlalchemy.JSON),
-)
-
-engine = sqlalchemy.create_engine(DATABASE_URL)
-metadata.create_all(engine)
 
 app = FastAPI()
 
 class DataModel(BaseModel):
     db_key: str
     title: str
-    value: Union[str, int, bool, float]
-
-@app.on_event("startup")
-async def startup():
-    await database.connect()
-
-@app.on_event("shutdown")
-async def shutdown():
-    await database.disconnect()
+    value: str
+    data_type: Union["str", "int", "bool", "float"]
 
 @app.get("/")
 def home():
@@ -41,50 +18,62 @@ def home():
 @app.post("/create_db")
 async def create_db():
     key = str(uuid.uuid4())
-    query = db_table.insert().values(key=key, data={})
-    await database.execute(query)
-    return {
-        "message": "Database created successfully, keep your Key safe!",
-        "key": key,
+    
+    with open(f"db/db{key}.json", 'w') as fp:
+        fp.write("{}")
+    
+    return  {
+        "message": f"Database created successfully, keep your Key safe!",
+        "key": key, 
         "success": True
     }
 
+
 @app.post("/add_data")
 async def add_data(key_model: DataModel):
-    query = db_table.select().where(db_table.c.key == key_model.db_key)
-    row = await database.fetch_one(query)
+    try: 
+        with open(f"db/db{key_model.db_key}.json", 'r') as fp:
+            json_db = json.load(fp)
+            
+        json_db[key_model.title] = key_model.value
 
-    if row:
-        data = row["data"]
-        data[key_model.title] = key_model.value
-        update_query = db_table.update().where(db_table.c.key == key_model.db_key).values(data=data)
-        await database.execute(update_query)
+        with open(f"db/db{key_model.db_key}.json", 'w') as fp:
+            
+            json.dump(json_db, fp, indent=4, skipkeys=True)
+
         return {
             "message": "Value added successfully!",
-            "success": True
-        }
-    else:
+
+        "success": True
+    }
+
+    except Exception as e:
         return {
-            "message": "Database not found!",
-            "success": False
+            "message": f"Database not found! raw error: {e}",
+
+        "success": False
         }
+
 
 @app.get("/get_data/{key}")
 async def get_data(key: str):
-    query = db_table.select().where(db_table.c.key == key)
-    row = await database.fetch_one(query)
+    try:
+        with open(f"db/db{key}.json", 'r') as fp:
+            json_db = json.load(fp)
+            return {
+                "message": "Database opened successfully!",
+                "key": key, 
+                "data": json_db,
+                "success": True
+            }
 
-    if row:
+    except Exception as e:
         return {
-            "message": "Database opened successfully!",
-            "key": key,
-            "data": row["data"],
-            "success": True
+                "message": "Unable to open database!",
+                "key": "Invalid key!", 
+                "data": {}, 
+                "success": False
         }
-    else:
-        return {
-            "message": "Unable to open database!",
-            "key": "Invalid key!",
-            "data": {},
-            "success": False
-        }
+
+
+
