@@ -69,7 +69,7 @@ async def get_data(key: str):
 
     except Exception as e:
         return {
-                "message": "Unable to open database!",
+                "message": f"Unable to open database!  Raw error: {e}",
                 "key": "Invalid key!", 
                 "data": {}, 
                 "success": False
