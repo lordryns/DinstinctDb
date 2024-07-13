@@ -67,11 +67,11 @@ https://distinctdb.onrender.com/
   ```
 
 
-### Delete Item
+### Get Items
 
-- **URL**: `/items/{item_id}`
-- **Method**: `DELETE`
-- **Description**: Deletes an item by its ID.
+- **URL**: `/get_data`
+- **Method**: `GET`
+- **Description**: Returns all the data in the database.
 - **Response**:
   ```json
   {
@@ -94,7 +94,7 @@ To interact with the DistinctDb API, use tools like `curl`, Postman, or any HTTP
 
 For questions, feedback, or support, you can reach out to the project owner:
 
-- Twitter: [@lordryns](https://twitter.com/lordryns)
+- Twitter (X): [@lordryns](https://twitter.com/lordryns)
 
 ---
 
