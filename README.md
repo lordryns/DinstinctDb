@@ -35,8 +35,8 @@ https://distinctdb.onrender.com/
   ```json
   {
         "message": "Response in text.",
-        "key": database-key, 
-        "success": Boolean
+        "key": "the-database-key", 
+        "success": "true or false"
     }
   ```
 
