@@ -75,16 +75,15 @@ https://distinctdb.onrender.com/
 - **Response**:
   ```json
   
-
+{
+  'message': 'success-message', 
+  'key': 'your-api-key',
+  'data': {
+ }, 
+'success': True
+}
 
  ```
-- **Error Responses**:
-  - Status Code: `404 Not Found`
-    ```json
-    {
-      "detail": "Item not found"
-    }
-    ```
 
 ## Usage
 
