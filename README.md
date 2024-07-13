@@ -10,7 +10,7 @@ Welcome to the DistinctDb API documentation. DistinctDb is a database API design
 For demonstration purposes, the base URL of the API is:
 
 ```
-https://distinctdb-api.example.com
+https://distinctdb.onrender.com/
 ```
 
 Replace `https://distinctdb-api.example.com` with the actual URL where your API is hosted.
