@@ -5,7 +5,7 @@ from typing import Union
 
 app = FastAPI()
 
-class CreateKeyModel(BaseModel):
+class DataModel(BaseModel):
     db_key: str
     title: str
     value: str
@@ -16,7 +16,7 @@ def home():
     return {"title": "DistinctDB"}
 
 @app.post("/create_db")
-def create_db():
+async def create_db():
     key = str(uuid.uuid4())
     
     with open(f"db/db{key}.json", 'w') as fp:
@@ -29,8 +29,8 @@ def create_db():
     }
 
 
-@app.post("/add_key")
-def add_keys(key_model: CreateKeyModel):
+@app.post("/add_data")
+async def add_data(key_model: DataModel):
     try: 
         with open(f"db/db{key_model.db_key}.json", 'r') as fp:
             json_db = json.load(fp)
@@ -53,3 +53,27 @@ def add_keys(key_model: CreateKeyModel):
 
         "success": False
         }
+
+
+@app.get("/get_data/{key}")
+async def get_data(key: str):
+    try:
+        with open(f"db/db{key}.json", 'r') as fp:
+            json_db = json.load(fp)
+            return {
+                "message": "Database opened successfully!",
+                "key": key, 
+                "data": json_db,
+                "success": True
+            }
+
+    except Exception as e:
+        return {
+                "message": "Unable to open database!",
+                "key": "Invalid key!", 
+                "data": {}, 
+                "success": False
+        }
+
+
+
