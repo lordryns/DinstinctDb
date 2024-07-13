@@ -19,7 +19,7 @@ def home():
 async def create_db():
     key = str(uuid.uuid4())
     
-    with open(f"db/db{key}.json", 'w') as fp:
+    with open(f"tmp/db/db{key}.json", 'w') as fp:
         fp.write("{}")
     
     return  {
@@ -32,12 +32,12 @@ async def create_db():
 @app.post("/add_data")
 async def add_data(key_model: DataModel):
     try: 
-        with open(f"db/db{key_model.db_key}.json", 'r') as fp:
+        with open(f"tmp/db/db{key_model.db_key}.json", 'r') as fp:
             json_db = json.load(fp)
             
         json_db[key_model.title] = key_model.value
 
-        with open(f"db/db{key_model.db_key}.json", 'w') as fp:
+        with open(f"tmp/db/db{key_model.db_key}.json", 'w') as fp:
             
             json.dump(json_db, fp, indent=4, skipkeys=True)
 
@@ -58,7 +58,7 @@ async def add_data(key_model: DataModel):
 @app.get("/get_data/{key}")
 async def get_data(key: str):
     try:
-        with open(f"db/db{key}.json", 'r') as fp:
+        with open(f"tmp/db/db{key}.json", 'r') as fp:
             json_db = json.load(fp)
             return {
                 "message": "Database opened successfully!",
