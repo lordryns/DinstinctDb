@@ -38,6 +38,8 @@ https://distinctdb.onrender.com/
         "key": "the-database-key", 
         "success": "true or false"
     }
+
+**or just use the DistinctDb site to create a database easily at [distinctdb](https://distinctdb.vercel.app)
   ```
 
 
