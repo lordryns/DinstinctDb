@@ -48,6 +48,16 @@ https://distinctdb.onrender.com/
 - **URL**: `/add_data/`
 - **Method**: `POST`
 - **Description**: Creates a new (key / value) item in the database.
+- **Request Body**:
+  ```json
+  {
+    "db_key": "your-db-key, 
+    "title": "the key", 
+    "value": "The value to assign",
+    "data_type": "str | int | bool | float"
+  }
+  ```
+
 - **Response**:
   ```json
   {
