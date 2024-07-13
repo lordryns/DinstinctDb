@@ -82,6 +82,7 @@ https://distinctdb.onrender.com/
  }, 
 'success': True
 }
+```
   ```
 - **Error Responses**:
   - Status Code: `404 Not Found`
