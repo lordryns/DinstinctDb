@@ -13,15 +13,15 @@ For demonstration purposes, the base URL of the API is:
 https://distinctdb.onrender.com/
 ```
 
-Replace `https://distinctdb-api.example.com` with the actual URL where your API is hosted.
+
 
 ## Endpoints
 
-### Create Item
+### Create Database
 
-- **URL**: `/items/`
+- **URL**: `/create_db/`
 - **Method**: `POST`
-- **Description**: Creates a new item in the database.
+- **Description**: Creates a new json database.
 - **Request Body**:
   ```json
   {
@@ -38,11 +38,11 @@ Replace `https://distinctdb-api.example.com` with the actual URL where your API 
   }
   ```
 
-### Get All Items
+### Create item
 
-- **URL**: `/items/`
-- **Method**: `GET`
-- **Description**: Retrieves all items stored in the database.
+- **URL**: `/add_data/`
+- **Method**: `POST`
+- **Description**: Creates a new key / value item in the database.
 - **Response**:
   ```json
   {
