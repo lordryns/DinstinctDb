@@ -40,12 +40,12 @@ https://distinctdb.onrender.com/
     }
 
 **or just use the DistinctDb site to create a database easily at** [distinctdb](https://distinctdb.vercel.app)
-  ```
-
+ 
+```
 
 
 ### Create item
-
+```
 - **URL**: `/add_data/`
 - **Method**: `POST`
 - **Description**: Creates a new key / value item in the database.
