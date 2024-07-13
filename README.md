@@ -1,4 +1,6 @@
+Note! this is just a demo documentation! 
 
+## This documentation is not valid or accurate!
 ---
 
 # DistinctDb API Documentation
