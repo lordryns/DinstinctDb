@@ -74,9 +74,14 @@ https://distinctdb.onrender.com/
 - **Description**: Returns all the data in the database.
 - **Response**:
   ```json
-  {
-    "message": "Item deleted successfully"
-  }
+  
+{
+  'message': 'success-message', 
+  'key': 'your-api-key',
+  'data': {
+ }, 
+'success': True
+}
   ```
 - **Error Responses**:
   - Status Code: `404 Not Found`
