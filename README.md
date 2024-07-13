@@ -85,12 +85,7 @@ https://distinctdb.onrender.com/
 
  ```
 
-## Usage
-
-To interact with the DistinctDb API, use tools like `curl`, Postman, or any HTTP client library in your preferred programming language. Simply replace `{item_id}` and `{base_url}` with the appropriate values for your API setup.
-
 ## Contact
-
 For questions, feedback, or support, you can reach out to the project owner:
 
 - Twitter (X): [@lordryns](https://twitter.com/lordryns)
