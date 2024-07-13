@@ -1,7 +1,7 @@
 
 ---
 
-# DistinctDb API Documentation
+# DistinctDb API 
 
 Welcome to the DistinctDb API documentation. DistinctDb is a database API designed for easy data storage using JSON files. Below, you'll find details on how to interact with the API.
 
