@@ -87,4 +87,3 @@ For questions, feedback, or support, you can reach out to the project owner:
 
 ---
 
-This design maintains clarity and readability while organizing information about your DistinctDb API endpoints and usage instructions. Adjustments can be made based on your preferences and additional content needs.
