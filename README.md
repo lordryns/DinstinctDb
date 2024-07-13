@@ -40,6 +40,8 @@ https://distinctdb.onrender.com/
     }
   ```
 
+
+
 ### Create item
 
 - **URL**: `/add_data/`
