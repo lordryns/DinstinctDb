@@ -15,6 +15,12 @@ class DataModel(BaseModel):
 def home():
     return {"title": "DistinctDB"}
 
+
+@app.post("/")
+def home():
+    return {"title": "DistinctDB"}
+
+
 @app.post("/create_db")
 async def create_db():
     key = str(uuid.uuid4())
