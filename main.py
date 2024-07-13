@@ -33,10 +33,13 @@ def create_db():
 def add_keys(key_model: CreateKeyModel):
     try: 
         with open(f"db/db{key_model.db_key}.json", 'r') as fp:
-            pass
+            json_db = json.load(fp)
+            
+        json_db[key_model.title] = key_model.value
 
         with open(f"db/db{key_model.db_key}.json", 'w') as fp:
-            json.dump({key_model.title: key_model.value}, fp)
+            
+            json.dump(json_db, fp, indent=4, skipkeys=True)
 
         return {
             "message": "Value added successfully!",
@@ -46,7 +49,7 @@ def add_keys(key_model: CreateKeyModel):
 
     except Exception as e:
         return {
-            "message": f"Database not found! Raw exception: {e}",
+            "message": f"Database not found! raw error: {e}",
 
         "success": False
         }
