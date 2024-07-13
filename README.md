@@ -61,69 +61,11 @@ https://distinctdb.onrender.com/
 - **Response**:
   ```json
   {
-    "items": [
-      {
-        "item_id": "item-id-1",
-        "name": "Item 1",
-        "description": "Description of Item 1"
-      },
-      {
-        "item_id": "item-id-2",
-        "name": "Item 2",
-        "description": "Description of Item 2"
-      }
-    ]
+    "message": "The api response", 
+    "success": "true or false"
   }
   ```
 
-### Get Item by ID
-
-- **URL**: `/items/{item_id}`
-- **Method**: `GET`
-- **Description**: Retrieves a specific item by its ID.
-- **Response**:
-  ```json
-  {
-    "item_id": "item-id-1",
-    "name": "Item 1",
-    "description": "Description of Item 1"
-  }
-  ```
-- **Error Responses**:
-  - Status Code: `404 Not Found`
-    ```json
-    {
-      "detail": "Item not found"
-    }
-    ```
-
-### Update Item
-
-- **URL**: `/items/{item_id}`
-- **Method**: `PUT`
-- **Description**: Updates an existing item by its ID.
-- **Request Body**:
-  ```json
-  {
-    "name": "Updated Item Name",
-    "description": "Updated Item Description"
-  }
-  ```
-- **Response**:
-  ```json
-  {
-    "item_id": "item-id-1",
-    "name": "Updated Item Name",
-    "description": "Updated Item Description"
-  }
-  ```
-- **Error Responses**:
-  - Status Code: `404 Not Found`
-    ```json
-    {
-      "detail": "Item not found"
-    }
-    ```
 
 ### Delete Item
 
