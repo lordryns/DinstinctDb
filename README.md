@@ -69,7 +69,7 @@ https://distinctdb.onrender.com/
 
 ### Get Items
 
-- **URL**: `/get_data`
+- **URL**: `/get_data/{key}`
 - **Method**: `GET`
 - **Description**: Returns all the data in the database.
 - **Response**:
